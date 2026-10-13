@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sreekruth Vardhan | Portfolio & Python 2D Game</title>
+    <!-- Link to the separate dark theme CSS file -->
+    <link rel="stylesheet" href="site css.css">
+    <!-- Font Awesome for simple icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header animate-fade-in">
+        <h1>Sreekruth Vardhan</h1>
+        <p>Portfolio & Python 2D Game Showcase (Animated Dark Edition)</p>
+        <div class="nav">
+            <a href="#about">About Me</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#python-game">Python Game</a>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- About Me Section -->
+        <div class="section animate-slide-up" id="about">
+            <h2>About Me</h2>
+            <p>
+                Hi! My name is <b>Sreekruth Vardhan</b>[cite: 1]. I am a beginner programmer passionate about building web pages, writing Java code, and designing 2D arcade games in Python[cite: 1].
+            </p>
+            <p>
+                This portfolio website is designed with simple HTML and a separate dark theme CSS file with smooth animations so it is clean, engaging, and easy to explain during my presentation[cite: 1].
+            </p>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="section animate-slide-up" id="skills">
+            <h2>My Skills</h2>
+            <div class="project-box">
+                <h3>Programming Languages & Tools</h3>
+                <ul>
+                    <li><b>Java:</b> Object-oriented programming and basic console apps[cite: 1]</li>
+                    <li><b>Python:</b> Pygame development, loops, and simple scripts[cite: 1]</li>
+                    <li><b>HTML & CSS:</b> Web page structuring and dark theme styling with animations[cite: 1]</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Projects Section with Filter Buttons -->
+        <div class="section animate-slide-up" id="projects">
+            <h2>Featured Projects</h2>
+            <p>Click the filter buttons below to sort projects by category[cite: 1]:</p>
+            
+            <div class="nav" style="margin-bottom: 20px; text-align: left;">
+                <button class="filter-btn" onclick="filterProjects('all')">All</button>
+                <button class="filter-btn" onclick="filterProjects('java')">Java</button>
+                <button class="filter-btn" onclick="filterProjects('python')">Python</button>
+                <button class="filter-btn" onclick="filterProjects('game')">2D Games</button>
+            </div>
+
+            <div id="projects-grid">
+                <!-- Python Game Project Box -->
+                <div class="project-box" data-category="python game">
+                    <span class="tag">Python & Game</span>
+                    <h3>Terraria-Style Python Miner</h3>
+                    <p>A 2D block mining simulation built with Python concepts, gravity physics, and tile interactions[cite: 1].</p>
+                    <a href="#python-game" style="color: #4cd137; font-weight: bold; text-decoration: none;">Play Python Simulator &rarr;</a>
+                </div>
+
+                <!-- Java Project Box -->
+                <div class="project-box" data-category="java">
+                    <span class="tag">Java Backend</span>
+                    <h3>Student Record Manager</h3>
+                    <p>An object-oriented Java application used to manage student grades, data storage, and simple records[cite: 1].</p>
+                </div>
+
+                <!-- Python Map Generator -->
+                <div class="project-box" data-category="python">
+                    <span class="tag">Python Script</span>
+                    <h3>Procedural Map Generator</h3>
+                    <p>A simple Python script utilizing random math logic to generate random caves and terrain layouts[cite: 1].</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Python 2D Game Section -->
+        <div class="section presentation-box animate-slide-up" id="python-game">
+            <h2>Python 2D Game Simulator</h2>
+            <p>Experience the Python game loop running interactively in your browser[cite: 1]!</p>
+
+            <div style="text-align: center; margin-top: 15px;">
+                <button class="filter-btn" onclick="switchPythonTab('simulator')" id="btn-sim">Play Game</button>
+                <button class="filter-btn" onclick="switchPythonTab('code')" id="btn-code">View Python Code (.py)</button>
+            </div>
+
+            <!-- Simulator Container -->
+            <div id="tab-simulator" style="margin-top: 15px; text-align: center;">
+                <div style="font-size: 14px; margin-bottom: 8px; color: #a4b0be;">
+                    SCORE: <span id="py-score" style="color: #4cd137; font-weight: bold;">0</span>
+                </div>
+                <div style="position: relative; display: inline-block; width: 100%; max-width: 500px;">
+                    <canvas id="pythonCanvas" width="500" height="200" style="background: #1e1e24; border: 2px solid #3d3d4e; border-radius: 6px; width: 100%; display: block;"></canvas>
+                    <div id="py-overlay" style="position: absolute; inset: 0; background: rgba(15, 15, 18, 0.85); display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 6px;">
+                        <p style="color: white; margin-bottom: 12px; font-size: 14px;">Click or press Space to jump!</p>
+                        <button class="filter-btn" onclick="startPythonGame()" style="background: #4cd137; color: #121214;">Start Game</button>
+                    </div>
+                </div>
+                <div style="margin-top: 12px;">
+                    <button class="filter-btn" onclick="pythonJump()" style="background: #4cd137; color: #121214; font-weight: bold;">Jump (Spacebar)</button>
+                </div>
+            </div>
+
+            <!-- Python Code Container -->
+            <div id="tab-code" style="display: none; margin-top: 15px; background: #121214; padding: 15px; border-radius: 6px; border: 1px solid #3d3d4e; text-align: left; font-family: monospace; font-size: 12px; color: #4cd137; overflow-x: auto;">
+<pre><code>import pygame
+import random
+
+pygame.init()
+screen = pygame.display.set_mode((500, 200))
+pygame.display.set_caption("Sreekruth Vardhan - Python Game")
+clock = pygame.time.Clock()
+
+player_y = 150
+player_vy = 0
+gravity = 0.5
+is_jumping = False
+running = True
+
+while running:
+    screen.fill((30, 30, 36))
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE and not is_jumping:
+                player_vy = -9
+                is_jumping = True
+
+    player_vy += gravity
+    player_y += player_vy
+    if player_y >= 150:
+        player_y = 150
+        is_jumping = False
+
+    pygame.draw.rect(screen, (76, 209, 55), (50, player_y, 25, 25))
+    pygame.display.flip()
+    clock.tick(60)
+
+pygame.quit()</code></pre>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer animate-fade-in">
+        <p>&copy; 2026 Sreekruth Vardhan | Built with Beginner HTML, Separate Dark CSS & Animations[cite: 1]</p>
+    </div>
+
+    <!-- Interactive JavaScript for filtering and Python Game simulation -->
+    <script>
+        // Project Filter Function
+        function filterProjects(category) {
+            const boxes = document.querySelectorAll('.project-box[data-category]');
+            boxes.forEach(box => {
+                const cat = box.getAttribute('data-category');
+                if(category === 'all' || cat.includes(category)) {
+                    box.style.display = 'block';
+                } else {
+                    box.style.display = 'none';
+                }
+            });
+        }
+
+        // Python Tab Switcher
+        function switchPythonTab(tab) {
+            const sim = document.getElementById('tab-simulator');
+            const code = document.getElementById('tab-code');
+            if(tab === 'simulator') {
+                sim.style.display = 'block';
+                code.style.display = 'none';
+            } else {
+                sim.style.display = 'none';
+                code.style.display = 'block';
+                pythonRunning = false;
+            }
+        }
+
+        // Python Game Simulator Logic
+        const canvas = document.getElementById('pythonCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreEl = document.getElementById('py-score');
+        const overlay = document.getElementById('py-overlay');
+
+        let pythonRunning = false;
+        let score = 0;
+        let playerY = 150;
+        let playerVy = 0;
+        let gravity = 0.5;
+        let isJumping = false;
+
+        function startPythonGame() {
+            pythonRunning = true;
+            score = 0;
+            scoreEl.textContent = score;
+            playerY = 150;
+            playerVy = 0;
+            isJumping = false;
+            overlay.style.display = 'none';
+            pythonLoop();
+        }
+
+        function pythonJump() {
+            if(!pythonRunning) {
+                startPythonGame();
+                return;
+            }
+            if(!isJuminous = true && !isJumping) { // standard safe toggle
+                playerVy = -9;
+                isJumping = true;
+            } else if (!isJumping) {
+                playerVy = -9;
+                isJumping = true;
+            }
+        }
+
+        window.addEventListener('keydown', function(e) {
+            if(e.code === 'Space') {
+                e.preventDefault();
+                pythonJump();
+            }
+        });
+
+        canvas.addEventListener('click', function() {
+            pythonJump();
+        });
+
+        function pythonLoop() {
+            if(!pythonRunning) return;
+
+            ctx.fillStyle = '#1e1e24';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Ground line
+            ctx.strokeStyle = '#3d3d4e';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(0, 175);
+            ctx.lineTo(canvas.width, 175);
+            ctx.stroke();
+
+            // Physics update
+            playerVy += gravity;
+            playerY += playerVy;
+            if(playerY >= 150) {
+                playerY = 150;
+                playerVy = 0;
+                isJumping = false;
+            }
+
+            // Draw player box
+            ctx.fillStyle = '#4cd137';
+            ctx.fillRect(50, playerY, 25, 25);
+
+            score++;
+            scoreEl.textContent = Math.floor(score / 10);
+
+            requestAnimationFrame(pythonLoop);
+        }
+    </script>
+</body>
+</html>
